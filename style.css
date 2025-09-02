@@ -1,0 +1,1038 @@
+:root {
+  --op-start-x: 10px;
+  --op-start-y: 0px;
+  --op-gap-x: 45px;
+  --op-gap-y: 39px;
+  /* 가젯 슬롯 위치 변수 추가 */
+  --gadget-start-x: 740px;
+  --gadget-start-y: 20px;
+  --gadget-slot-width: 70px;
+  --gadget-gap-x: 85px;
+  --gadget-icon-offset-x: 23px;
+  --gadget-icon-offset-y: 50px;
+  /* 탭 위치 변수 추가 */
+  --tab-start-y: 12.8px;
+  --tab-gap-y: 30px;
+  --tab-left-x: 1550px;
+  --tab-right-x: 1688px;
+}
+
+body {
+  background: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.general_slot{
+  position: absolute;
+  top: 15px;
+  left: 1565px;
+  border: 0.1rem solid white;
+  height: 32px;
+  width: 130px;
+}
+
+#vault {
+  top: 0px;
+  left: 100px;
+}
+#half {
+  top: 0px;
+  left: 50px;
+}
+#option {
+  top: -7px;
+  left: 170px;
+}
+#last {
+  top: 12px;
+  left: 230px;
+}
+#bullethole {
+  top: -7px;
+  left: 310px;
+}
+.number_slot{
+  position: absolute;
+  top: 60px;
+  left: 1565px;
+  border: 0.1rem solid white;
+  height: 95px;
+  width: 245px;
+}
+.number_slot_title{
+  font-size: 20px;
+  color: white;
+  position: absolute;
+  bottom: 50px;
+  left: 5px;
+}
+.numbers {
+  font-size: 11px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 35px;
+  background-color:black;
+  border: 2px solid white;
+}
+.No_1{
+  position: absolute;
+  top: 40px;
+  left: 15px;
+  color: red;
+  border-color: red;
+}
+.No_2{
+  position: absolute;
+  top: 40px;
+  left: 60px;
+  color: cyan;
+  border-color: cyan;
+}
+.No_3{
+  position: absolute;
+  top: 40px;
+  left: 105px;
+  color:yellow;
+  border-color: yellow;
+}
+.No_4{
+  position: absolute;
+  top: 40px;
+  left: 150px;
+  color: fuchsia;
+  border-color:fuchsia;
+}
+.No_5{
+  position: absolute;
+  top: 40px;
+  left: 195px;
+  color:limegreen;
+  border-color:limegreen;
+}
+/* 攻撃側、防衛側エリアの基準位置 */
+.defense_slot {
+  border: 0.1rem solid white;
+  display: inline-block;
+  width: 730px;
+  height: 111px;
+  position: relative;
+  margin-left: 20px;
+}
+.attack_slot {
+  border: 0.1rem solid white;
+  display: block;
+  width: 730px;
+  height: 111px;
+  position: relative;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+/* アイコンすべてに適応 */
+.drag-and-drop {
+  cursor: move;
+  position: absolute;
+  z-index: 10;
+}
+/* オペレーターアイコンすべてに適応 */
+.icon {
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+.gadget {
+  width: 25px;
+  height: 25px;
+}
+.gadget1 {
+  width: 20px;
+  height: 20px;
+}
+.barricade {
+  width: 20px;
+  height: 30px;
+}
+.bigicon {
+  width: 50px;
+  height: 50px;
+}
+.smallicon {
+  width: 30px;
+  height: 10px;
+}
+/* 攻撃側ガジェット位置決め */
+.drone_slot {
+  width: 70px;
+  height: 90px;
+  position: absolute;
+  top: 20px;
+  left: 740px;
+  border: 2px solid white;
+  text-align: center;
+}
+.drone_slot span {
+  display: inline-block;
+  margin: 10px 5px;
+  color: white;
+  font-size: 12px;
+}
+.drone {
+  position: absolute;
+  top: 70px;
+  left: 763px;
+  border: 2px solid rgb(255, 0, 0);
+}
+.bleaching_slot {
+  width: 70px;
+  height: 90px;
+  position: absolute;
+  top: 20px;
+  left: 825px;
+  border: 2px solid white;
+  text-align: center;
+}
+.bleaching {
+  position: absolute;
+  top: 70px;
+  left: 848px;
+  border: 2px solid rgb(255, 255, 0);
+}
+.bleaching_slot span {
+  display: inline-block;
+  margin: 10px 5px;
+  color: white;
+  font-size: 9px;
+}
+.claymore_slot {
+  width: 70px;
+  height: 90px;
+  position: absolute;
+  top: 20px;
+  left: 910px;
+  border: 2px solid white;
+  text-align: center;
+}
+.claymore {
+  position: absolute;
+  top: 70px;
+  left: 933px;
+  border: 2px solid rgb(0, 255, 255);
+}
+.claymore_slot span {
+  display: inline-block;
+  margin: 10px 5px;
+  color: white;
+  font-size: 12px;
+}
+.smoke_slot {
+  width: 70px;
+  height: 90px;
+  position: absolute;
+  top: 20px;
+  left: 995px;
+  border: 2px solid white;
+  text-align: center;
+}
+.smoke {
+  position: absolute;
+  top: 70px;
+  left: 1018px;
+  border: 2px solid rgb(0, 255, 0);
+}
+.smoke_slot span {
+  display: inline-block;
+  margin: 10px 5px;
+  color: white;
+  font-size: 12px;
+}
+.grenade_slot {
+  width: 70px;
+  height: 90px;
+  position: absolute;
+  top: 20px;
+  left: 1080px;
+  border: 2px solid white;
+  text-align: center;
+}
+.grenade {
+  position: absolute;
+  top: 70px;
+  left: 1103px;
+  border: 2px solid rgb(0, 0, 255);
+}
+.grenade_slot span {
+  display: inline-block;
+  margin: 10px 5px;
+  color: white;
+  font-size: 12px;
+}
+.flash_slot {
+  width: 70px;
+  height: 90px;
+  position: absolute;
+  top: 20px;
+  left: 1165px;
+  border: 2px solid white;
+  text-align: center;
+}
+.flash {
+  position: absolute;
+  top: 70px;
+  left: 1188px;
+  border: 2px solid rgb(255, 0, 255);
+}
+.flash_slot span {
+  display: inline-block;
+  margin: 10px 5px;
+  color: white;
+  font-size: 12px;
+}
+.hardbleaching_slot {
+  width: 70px;
+  height: 90px;
+  position: absolute;
+  top:20px;
+  left: 1250px;
+  border: 2px solid white;
+  text-align: center;
+}
+.hardbleaching {
+  position: absolute;
+  top: 70px;
+  left: 1273px;
+  border: 2px solid rgb(0, 255, 128);
+}
+.hardbleaching_slot span {
+  display: inline-block;
+  margin: 10px 5px;
+  color: white;
+  font-size: 9px;
+}
+.diffuser_slot {
+  width: 70px;
+  height: 90px;
+  position: absolute;
+  top:20px;
+  left: 1335px;
+  border: 2px solid white;
+  text-align: center;
+}
+.diffuser {
+  position: absolute;
+  top: 70px;
+  left: 1358px;
+  border: 2px solid rgb(255, 155, 0);
+}
+.diffuser_slot span {
+  display: inline-block;
+  margin: 10px 5px;
+  color: white;
+  font-size: 11px;
+}
+.emp_slot {
+  width: var(--gadget-slot-width);
+  height: 90px;
+  position: absolute;
+  top: var(--gadget-start-y);
+  left: calc(var(--gadget-start-x) + var(--gadget-gap-x) * 8);
+  border: 2px solid white;
+  text-align: center;
+}
+.emp {
+  position: absolute;
+  top: calc(var(--gadget-start-y) + var(--gadget-icon-offset-y));
+  left: calc(var(--gadget-start-x) + var(--gadget-gap-x) * 8 + var(--gadget-icon-offset-x));
+  border: 2px solid rgb(155, 0, 255);
+}
+.emp_slot span {
+  display: inline-block;
+  margin: 10px 5px;
+  color: white;
+  font-size: 11px;
+}
+/* 防衛側ガジェット位置決め */
+.reinforcement_slot {
+  text-align: center;
+  width: 70px;
+  height: 90px;
+  position: absolute;
+  top: 20px;
+  left: 740px;
+  border: 2px solid white;
+}
+.reinforcement_slot span {
+  display: inline-block;
+  margin: 10px 5px;
+  color: white;
+  font-size: 12px;
+  z-index: -1;
+}
+.reinforcement {
+  position: absolute;
+  top: 70px;
+  left: 763px;
+  border: 2px solid rgb(255, 0, 0);
+  z-index: 5;
+}
+.wire_slot {
+  width: 70px;
+  height: 90px;
+  position: absolute;
+  top: 20px;
+  left: 825px;
+  border: 2px solid white;
+  text-align: center;
+}
+.wire {
+  position: absolute;
+  top: 70px;
+  left: 848px;
+  border: 2px solid rgb(255, 255, 0);
+}
+.wire_slot span {
+  display: inline-block;
+  margin: 10px 5px;
+  color: white;
+  font-size: 12px;
+}
+.shield_slot {
+  width: 70px;
+  height: 90px;
+  position: absolute;
+  top: 20px;
+  left: 910px;
+  border: 2px solid white;
+  text-align: center;
+}
+.shield {
+  position: absolute;
+  top: 70px;
+  left: 933px;
+  border: 2px solid rgb(0, 255, 255);
+}
+.shield_slot span {
+  display: inline-block;
+  margin: 10px 5px;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+}
+.camera_slot {
+  width: 70px;
+  height: 90px;
+  position: absolute;
+  top: 20px;
+  left: 995px;
+  border: 2px solid white;
+  text-align: center;
+}
+.camera {
+  position: absolute;
+  top: 70px;
+  left: 1018px;
+  border: 2px solid rgb(0, 255, 0);
+}
+.camera_slot span {
+  display: inline-block;
+  margin: 10px 5px;
+  color: white;
+  font-size: 12px;
+}
+.impact_slot {
+  width: 70px;
+  height: 90px;
+  position: absolute;
+  top: 20px;
+  left: 1080px;
+  border: 2px solid white;
+  text-align: center;
+}
+.impact {
+  position: absolute;
+  top: 70px;
+  left: 1103px;
+  border: 2px solid rgb(0, 0, 255);
+}
+.impact_slot span {
+  display: inline-block;
+  margin: 10px 5px;
+  color: white;
+  font-size: 12px;
+}
+.c4_slot {
+  width: 70px;
+  height: 90px;
+  position: absolute;
+  top: 20px;
+  left: 1165px;
+  border: 2px solid white;
+  text-align: center;
+}
+.c4 {
+  position: absolute;
+  top: 70px;
+  left: 1188px;
+  border: 2px solid rgb(255, 0, 255);
+}
+.c4_slot span {
+  display: inline-block;
+  margin: 10px 5px;
+  color: white;
+  font-size: 12px;
+}
+.alarm_slot {
+  width: 70px;
+  height: 90px;
+  position: absolute;
+  top:20px;
+  left: 1250px;
+  border: 2px solid white;
+  text-align: center;
+}
+.alarm {
+  position: absolute;
+  top: 70px;
+  left: 1273px;
+  border: 2px solid rgb(0, 255, 128);
+}
+.alarm_slot span {
+  display: inline-block;
+  margin: 10px 5px;
+  color: white;
+  font-size: 12px;
+}
+.observationblocker_slot {
+  width: var(--gadget-slot-width);
+  height: 90px;
+  position: absolute;
+  top: var(--gadget-start-y);
+  left: calc(var(--gadget-start-x) + var(--gadget-gap-x) * 7);
+  border: 2px solid white;
+  text-align: center;
+}
+.observationblocker {
+  position: absolute;
+  top: calc(var(--gadget-start-y) + var(--gadget-icon-offset-y));
+  left: calc(var(--gadget-start-x) + var(--gadget-gap-x) * 7 + var(--gadget-icon-offset-x));
+  border: 2px solid rgb(50, 50, 150);
+}
+.observationblocker_slot span {
+  display: inline-block;
+  margin: 10px 5px;
+  color: white;
+  font-size: 12px;
+}
+.barricade_slot {
+  width: 70px;
+  height: 90px;
+  position: absolute;
+  top:20px;
+  left: 1420px;
+  border: 2px solid white;
+  text-align: center;
+}
+.barricade {
+  position: absolute;
+  top: 68px;
+  left: 1445px;
+  border: 2px solid rgb(255, 155, 0);
+}
+.barricade_slot span {
+  display: inline-block;
+  margin: 10px 5px;
+  color: white;
+  font-size: 12px;
+}
+.container {
+  position: relative;
+  width: 1510px;
+  height: 1050px;
+  top: 5px;
+  min-height: 1050px; /* 드롭 영역 확보 */
+  border: 3px solid #ff6b00; /* 맵 영역 테두리 추가 */
+  box-shadow: 0 0 10px rgba(255, 107, 0, 0.5); /* 테두리 강조 효과 */
+  background-color: rgba(0, 0, 0, 0.1); /* 약간의 배경색으로 영역 구분 */
+}
+
+/* 맵 영역 경계 표시를 위한 추가 스타일 */
+.container::before {
+  content: "맵 영역";
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  color: #ff6b00;
+  font-size: 14px;
+  font-weight: bold;
+  background: black;
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+
+/* 드롭존 스타일 추가 */
+.container {
+  position: relative;
+  width: 1510px;
+  height: 1050px;
+  min-height: 1050px; /* 드롭 영역 확보 */
+  border: 3px solid #ff6b00; /* 맵 영역 테두리 추가 */
+  box-shadow: 0 0 10px rgba(255, 107, 0, 0.5); /* 테두리 강조 효과 */
+  background-color: rgba(0, 0, 0, 0.1); /* 약간의 배경색으로 영역 구분 */
+}
+
+/* 복제된 아이콘 스타일 수정 */
+[id*="-clone-"] {
+  cursor: move !important;
+  /* 원본 테두리 스타일 유지를 위해 기본 테두리 제거 */
+  /* border: 1px solid rgba(255, 255, 255, 0.8) !important; */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  opacity: 0.9;
+}
+
+/* 복제된 아이콘 호버 효과 */
+[id*="-clone-"]:hover {
+  opacity: 1;
+  /* 호버 시에도 원본 테두리 유지 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 0, 0.8);
+}
+
+/* 복제된 아이콘 드래그 중 스타일 */
+[id*="-clone-"]:active {
+  opacity: 0.7;
+  transform: scale(1.05);
+}
+
+/* 복제된 아이콘이 원본 클래스의 스타일을 상속받도록 보장 */
+[id*="-clone-"].icon {
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+[id*="-clone-"].gadget {
+  width: 25px;
+  height: 25px;
+}
+
+[id*="-clone-"].gadget1 {
+  width: 20px;
+  height: 20px;
+}
+
+[id*="-clone-"].barricade {
+  width: 20px;
+  height: 30px;
+}
+
+[id*="-clone-"].bigicon {
+  width: 50px;
+  height: 50px;
+}
+
+[id*="-clone-"].smallicon {
+  width: 30px;
+  height: 10px;
+}
+
+[id*="-clone-"].numbers {
+  font-size: 24px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 35px;
+  background-color: black;
+  border: 2px solid white;
+}
+
+/* 숫자 아이콘 복제본들의 색상 유지 */
+[id*="-clone-"].No_1 {
+  color: red;
+  border-color: red;
+}
+
+[id*="-clone-"].No_2 {
+  color: cyan;
+  border-color: cyan;
+}
+
+[id*="-clone-"].No_3 {
+  color: yellow;
+  border-color: yellow;
+}
+
+[id*="-clone-"].No_4 {
+  color: fuchsia;
+  border-color: fuchsia;
+}
+
+[id*="-clone-"].No_5 {
+  color: limegreen;
+  border-color: limegreen;
+}
+.tabs {
+  background-color: #fff;
+  position: absolute;
+  height: 0px;
+  width: 0px;
+}
+/*タブのスタイル*/
+.tab_item {
+  height: 30px;
+  width: 135px;
+  background-color: #d9d9d9;
+  line-height: 30px;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: #565656;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+  position: absolute;
+  opacity: 0.8;
+}
+/*選択されているタブのスタイルを変える*/
+.tabs input:checked + .tab_item {
+  background-color: rgb(250, 180, 0);
+  color: #fff;
+  opacity: 1;
+}
+/* 마ップ 이름의 탭 위치 조정 */
+.L1 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 0); left: var(--tab-left-x); }
+.L2 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 1); left: var(--tab-left-x); }
+.L3 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 2); left: var(--tab-left-x); }
+.L4 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 3); left: var(--tab-left-x); }
+.L5 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 4); left: var(--tab-left-x); }
+.L6 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 5); left: var(--tab-left-x); }
+.L7 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 6); left: var(--tab-left-x); }
+.L8 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 7); left: var(--tab-left-x); }
+.L9 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 8); left: var(--tab-left-x); }
+.L10 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 9); left: var(--tab-left-x); }
+.L11 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 10); left: var(--tab-left-x); }
+.L12 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 11); left: var(--tab-left-x); }
+.L13 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 12); left: var(--tab-left-x); }
+.L14 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 13); left: var(--tab-left-x); }
+.L15 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 14); left: var(--tab-left-x); }
+.L16 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 15); left: var(--tab-left-x); }
+.L17 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 16); left: var(--tab-left-x); }
+.L18 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 17); left: var(--tab-left-x); }
+.L19 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 18); left: var(--tab-left-x); }
+.L20 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 19); left: var(--tab-left-x); }
+.L21 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 20); left: var(--tab-left-x); }
+.L22 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 21); left: var(--tab-left-x); }
+.L23 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 22); left: var(--tab-left-x); }
+
+/* 마ップ 탭의 위치 - R 시리즈 */
+.R1 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 0); left: var(--tab-right-x); }
+.R2 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 1); left: var(--tab-right-x); }
+.R3 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 2); left: var(--tab-right-x); }
+.R4 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 3); left: var(--tab-right-x); }
+.R5 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 4); left: var(--tab-right-x); }
+.R6 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 5); left: var(--tab-right-x); }
+.R7 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 6); left: var(--tab-right-x); }
+.R8 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 7); left: var(--tab-right-x); }
+.R9 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 8); left: var(--tab-right-x); }
+.R10 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 9); left: var(--tab-right-x); }
+.R11 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 10); left: var(--tab-right-x); }
+.R12 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 11); left: var(--tab-right-x); }
+.R13 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 12); left: var(--tab-right-x); }
+.R14 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 13); left: var(--tab-right-x); }
+.R15 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 14); left: var(--tab-right-x); }
+.R16 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 15); left: var(--tab-right-x); }
+.R17 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 16); left: var(--tab-right-x); }
+.R18 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 17); left: var(--tab-right-x); }
+.R19 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 18); left: var(--tab-right-x); }
+
+/* 라디오 버튼 숨기기 */
+input[name="tab_item"] {
+  display: none;
+}
+
+/* 탭 전환 내용 스타일 */
+.tab_content {
+  display: none;
+  padding: 0;
+  margin: 0;
+}
+/*ラジオボタンを全て消す*/
+input[name="tab_item"] {
+  display: none;
+}
+
+/*タブ切り替えの中身のスタイル*/
+.tab_content {
+  display: none;
+  padding: 0;
+  margin: 0;
+}
+
+/*選択されているタブのコンテンツのみを表示*/
+#bank2f:checked ~ #bank2f,
+#bank1f:checked ~ #bank1f,
+#bankb1:checked ~ #bankb1,
+#border2f:checked ~ #border2f,
+#border1f:checked ~ #border1f,
+#cafe3f:checked ~ #cafe3f,
+#cafe2f:checked ~ #cafe2f,
+#cafe1f:checked ~ #cafe1f,
+#club2f:checked ~ #club2f,
+#club1f:checked ~ #club1f,
+#clubb1:checked ~ #clubb1,
+#coastline2f:checked ~ #coastline2f,
+#coastline1f:checked ~ #coastline1f,
+#consulate2f:checked ~ #consulate2f,
+#consulate1f:checked ~ #consulate1f,
+#consulateb1:checked ~ #consulateb1,
+#villa2f:checked ~ #villa2f,
+#villa1f:checked ~ #villa1f,
+#villab1:checked ~ #villab1,
+#kanal2f:checked ~ #kanal2f,
+#kanal1f:checked ~ #kanal1f,
+#kanalb1:checked ~ #kanalb1,
+#kanalb2:checked ~ #kanalb2,
+#chalet2f:checked ~ #chalet2f,
+#chalet1f:checked ~ #chalet1f,
+#chaletb1:checked ~ #chaletb1,
+#oregon3f:checked ~ #oregon3f,
+#oregon2f:checked ~ #oregon2f,
+#oregon1f:checked ~ #oregon1f,
+#oregonb1:checked ~ #oregonb1,
+#outback2f:checked ~ #outback2f,
+#outback1f:checked ~ #outback1f,
+#skyscraper2f:checked ~ #skyscraper2f,
+#skyscraper1f:checked ~ #skyscraper1f,
+#themepark2f:checked ~ #themepark2f,
+#themepark1f:checked ~ #themepark1f,
+#lab2f:checked ~ #lab2f,
+#lab1f:checked ~ #lab1f,
+#labb1:checked ~ #labb1,
+#lair2f:checked ~ #lair2f,
+#lair1f:checked ~ #lair1f,
+#lairb1:checked ~ #lairb1 {
+  display: block;
+}
+
+/* お絵描きエリアのcss */
+
+#canvas {
+  margin: 0.8rem;
+}
+input[type="image"] {
+  padding: 0.2rem;
+  outline: none;
+}
+
+input[type="image"].active {
+  border: 0.2rem solid white;
+}
+.map {
+  margin-top: 100px;
+  margin-left: 200px;
+  width: 1200px;
+  height: 900px;
+}
+canvas {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  z-index: 2;
+}
+.palette {
+  position: absolute;
+  top: -70px;
+  left: 1565px;
+  width: 300px; /* 팔레트 영역 너비 설정 */
+  height: 50px; /* 팔레트 영역 높이 설정 */
+}
+label {
+  color: white;
+  margin-right: 0.5rem;
+}
+.btn {
+  opacity: 0.8;
+}
+.btn:hover {
+ opacity: 1;
+}
+#reset_icon {
+  position: absolute;
+  top: -40px;
+  left: 0px;
+  width: 90px; /* 버튼 너비 조정 */
+}
+#delete_canvas {
+  position: absolute;
+  top: -40px;
+  left: 100px; /* 위치 조정 */
+  width: 90px; /* 버튼 너비 조정 */
+}
+#all_reset {
+  position: absolute;
+  top: -40px;
+  left: 200px; /* 위치 조정 */
+  width: 90px; /* 버튼 너비 조정 */
+}
+
+/* 체크박스와 버튼 컨테이너 스타일 수정 */
+.control-container {
+  position: absolute;
+  top: 65px;
+  left: 0px;
+  width: 300px;
+  height: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 0; /* 탭 버튼보다 낮은 z-index 설정 */
+}
+
+/* 체크박스 레이블 스타일 */
+.checkbox-label {
+  color: white;
+  font-size: 12px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  z-index: 0;
+}
+
+/* 모든 맵 데이터 삭제 버튼 스타일 */
+#clear_all_maps {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 11px;
+  cursor: pointer;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+/* 行指定 */
+.op-row-1 { top: 0px; }
+.op-row-2 { top: var(--row-height); }
+.op-row-3 { top: calc(var(--row-height) * 2); }
+.op-row-4 { top: calc(var(--row-height) * 3); }
+.op-row-5 { top: calc(var(--row-height) * 4); }
+.op-row-6 { top: calc(var(--row-height) * 5); }
+
+/* 열 지정  */
+.op-col-1 { left: var(--operator-start-x); }
+.op-col-2 { left: calc(var(--operator-start-x) + 45px * 1); }
+.op-col-3 { left: calc(var(--operator-start-x) + 45px * 2); }
+.op-col-4 { left: calc(var(--operator-start-x) + 45px * 3); }
+.op-col-5 { left: calc(var(--operator-start-x) + 45px * 4); }
+.op-col-6 { left: calc(var(--operator-start-x) + 45px * 5); }
+.op-col-7 { left: calc(var(--operator-start-x) + 45px * 6); }
+.op-col-8 { left: calc(var(--operator-start-x) + 45px * 7); }
+.op-col-9 { left: calc(var(--operator-start-x) + 45px * 8); }
+.op-col-10 { left: calc(var(--operator-start-x) + 45px * 9); }
+.op-col-11 { left: calc(var(--operator-start-x) + 45px * 10); }
+.op-col-12 { left: calc(var(--operator-start-x) + 45px * 11); }
+.op-col-13 { left: calc(var(--operator-start-x) + 45px * 12); }
+.op-col-14 { left: calc(var(--operator-start-x) + 45px * 13); }
+.op-col-15 { left: calc(var(--operator-start-x) + 45px * 14); }
+.op-col-16 { left: calc(var(--operator-start-x) + 45px * 15); }
+
+/* 방어측 오퍼레이터 1행 */
+#sentry { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 0); }
+#smoke { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 1); }
+#mute { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 2); }
+#castle { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 3); }
+#pulse { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 4); }
+#doc { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 5); }
+#rook { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 6); }
+#kapkan { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 7); }
+#tachanka { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 8); }
+#jaeger { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 9); }
+#bandit { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 10); }
+#frost { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 11); }
+#valkyrie { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 12); }
+#caveira { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 13); }
+#echo { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 14); }
+#mira { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 15); }
+
+/* 방어측 오퍼레이터 2행 */
+#lesion { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 0); }
+#ela { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 1); }
+#vigil { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 2); }
+#maestro { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 3); }
+#alibi { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 4); }
+#clash { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 5); }
+#kaid { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 6); }
+#mozzie { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 7); }
+#warden { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 8); }
+#goyo { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 9); }
+#wamai { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 10); }
+#oryx { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 11); }
+#melusi { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 12); }
+#aruni { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 13); }
+#thunderbird { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 14); }
+#thorn { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 15); }
+
+/* 방어측 오퍼레이터 3행 */
+#azami { top: calc(var(--op-gap-y) * 2); left: calc(var(--op-start-x) + var(--op-gap-x) * 0); }
+#solis { top: calc(var(--op-gap-y) * 2); left: calc(var(--op-start-x) + var(--op-gap-x) * 1); }
+#fenrir { top: calc(var(--op-gap-y) * 2); left: calc(var(--op-start-x) + var(--op-gap-x) * 2); }
+#tubarao { top: calc(var(--op-gap-y) * 2); left: calc(var(--op-start-x) + var(--op-gap-x) * 3); }
+#skopos { top: calc(var(--op-gap-y) * 2); left: calc(var(--op-start-x) + var(--op-gap-x) * 4); }
+#denari { top: calc(var(--op-gap-y) * 2); left: calc(var(--op-start-x) + var(--op-gap-x) * 5); }
+
+/* 공격측 오퍼레이터 1행 */
+#striker { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 0); }
+#sledge { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 1); }
+#thatcher { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 2); }
+#ash { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 3); }
+#thermite { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 4); }
+#twitch { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 5); }
+#montagne { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 6); }
+#glaz { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 7); }
+#fuze { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 8); }
+#blitz { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 9); }
+#iq { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 10); }
+#buck { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 11); }
+#blackbeard { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 12); }
+#capitao { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 13); }
+#hibana { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 14); }
+#jackal { top: var(--op-start-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 15); }
+
+/* 공격측 오퍼레이터 2행 */
+#ying { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 0); }
+#zofia { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 1); }
+#dokkaebi { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 2); }
+#lion { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 3); }
+#finka { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 4); }
+#maverick { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 5); }
+#nomad { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 6); }
+#gridlock { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 7); }
+#nokk { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 8); }
+#amaru { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 9); }
+#kali { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 10); }
+#iana { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 11); }
+#ace { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 12); }
+#zero { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 13); }
+#flores { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 14); }
+#osa { top: var(--op-gap-y); left: calc(var(--op-start-x) + var(--op-gap-x) * 15); }
+
+/* 공격측 오퍼레이터 3행 */
+#sens { top: calc(var(--op-gap-y) * 2); left: calc(var(--op-start-x) + var(--op-gap-x) * 0); }
+#grim { top: calc(var(--op-gap-y) * 2); left: calc(var(--op-start-x) + var(--op-gap-x) * 1); }
+#brava { top: calc(var(--op-gap-y) * 2); left: calc(var(--op-start-x) + var(--op-gap-x) * 2); }
+#ram { top: calc(var(--op-gap-y) * 2); left: calc(var(--op-start-x) + var(--op-gap-x) * 3); }
+#deimos { top: calc(var(--op-gap-y) * 2); left: calc(var(--op-start-x) + var(--op-gap-x) * 4); }
+#rauora { top: calc(var(--op-gap-y) * 2); left: calc(var(--op-start-x) + var(--op-gap-x) * 5); }
+#deimos { top: calc(var(--op-gap-y) * 2); left: calc(var(--op-start-x) + var(--op-gap-x) * 4); }
+#rauora { top: calc(var(--op-gap-y) * 2); left: calc(var(--op-start-x) + var(--op-gap-x) * 5); }
+#grim { top: calc(var(--op-gap-y) * 2); left: calc(var(--op-start-x) + var(--op-gap-x) * 1); }
+#brava { top: calc(var(--op-gap-y) * 2); left: calc(var(--op-start-x) + var(--op-gap-x) * 2); }
+#ram { top: calc(var(--op-gap-y) * 2); left: calc(var(--op-start-x) + var(--op-gap-x) * 3); }
+#deimos { top: calc(var(--op-gap-y) * 2); left: calc(var(--op-start-x) + var(--op-gap-x) * 4); }
+#rauora { top: calc(var(--op-gap-y) * 2); left: calc(var(--op-start-x) + var(--op-gap-x) * 5); }
+
+
