@@ -1,18 +1,16 @@
 <html lang="ko">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="Ende_LOGO.png">
+    <link rel="stylesheet" href="html5Doctor.css">
+    <link rel="stylesheet" href="style.css">
+    <title>R6 맵 전략 툴</title>
   </head>
 
-
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="icon" href="Ende_LOGO.png">
-  <link rel="stylesheet" href="html5Doctor.css">
-  <link rel="stylesheet" href="style.css">
-  <title>R6 맵 전략 툴</title>
-
-
+<body>
+<div class="main-wrapper">
 
   <!-- 아이콘 배치-->
   <!-- 공격측 영역 -->
@@ -109,21 +107,11 @@
 <!-- 숫자 아이콘 영역-->
   <div class="number_slot">
     <h1 class="number_slot_title">숫자 아이콘</h1>
-    <div class="drag-and-drop numbers No_1" draggable="true">
-     <h1>1</h1>
-    </div>
-    <div class="drag-and-drop numbers No_2" draggable="true">
-      <h1>2</h1>
-    </div>
-    <div class="drag-and-drop numbers No_3" draggable="true">
-      <h1>3</h1>
-    </div>
-    <div class="drag-and-drop numbers No_4" draggable="true">
-      <h1>4</h1>
-    </div>
-    <div class="drag-and-drop numbers No_5" draggable="true">
-      <h1>5</h1>
-    </div>
+    <div class="drag-and-drop numbers No_1" draggable="true">1</div>
+    <div class="drag-and-drop numbers No_2" draggable="true">2</div>
+    <div class="drag-and-drop numbers No_3" draggable="true">3</div>
+    <div class="drag-and-drop numbers No_4" draggable="true">4</div>
+    <div class="drag-and-drop numbers No_5" draggable="true">5</div>
   </div>
 <!-- 숫자 아이콘 영역 끝-->
   
@@ -337,6 +325,13 @@
       <input id="outback1f" type="radio" name="tab_item">
       <label class="R19 tab_item" for="outback1f">오지 1F</label>
 
+      <input id="fortress3f" type="radio" name="tab_item">
+      <label class="R20 tab_item" for="fortress3f">요새 3F</label>
+      <input id="fortress2f" type="radio" name="tab_item">
+      <label class="R21 tab_item" for="fortress2f">요새 2F</label>
+      <input id="fortress1f" type="radio" name="tab_item">
+      <label class="R22 tab_item" for="fortress1f">요새 1F</label>
+
 
       <div class="tab_content" id="bank2f">
         <img src="bank2f.jpg" alt="" class="map">
@@ -463,26 +458,36 @@
       </div>
 	  <div class="tab_content" id="lairb1">
         <img src="lairb1.png" alt="" class="map">
-      </div>
     </div>
+        <div class="tab_content" id="fortress3f">
+        <img src="fortress3f.jpg" alt="" class="map">
+    </div>
+        <div class="tab_content" id="fortress2f">
+        <img src="fortress2f.jpg" alt="" class="map">
+    </div>
+        <div class="tab_content" id="fortress1f">
+        <img src="fortress1f.jpg" alt="" class="map">
+    </div>
+    </div>
+    
 
     <canvas id="canvas" width="1550" height="1050"></canvas><br>
     <div class="palette">
 	<font size=2px;>
       <label>색상<input id="color" type="color"></label>
       <label>굵기<input id="width" type="number" min="1" max="50"></label>
-      <input type="button" class="btn" id="reset_icon" value="아이콘 지우기" onclick="reset_icon()">
-      <input type="button" class="btn" id="delete_canvas" value="낙서 지우기" onclick="delete_canvas()">
-      <input type="button" class="btn" id="all_reset" value="전부 지우기" onclick="all_reset()">
-      <input type="image" id="pencil" src="asse/ui/1.jpg" width="35px" class="active" onclick="tool(1)">
-      <input type="image" id="eraser" src="asse/ui/2.jpg" width="35px" onclick="tool(2)">
+      <input type="button" class="btn" id="reset_icon" value="아이콘 지우기">
+      <input type="button" class="btn" id="delete_canvas" value="낙서 지우기">
+      <input type="button" class="btn" id="all_reset" value="전부 지우기">
+      <input type="image" id="pencil" src="asse/ui/1.jpg" width="35px" class="active">
+      <input type="image" id="eraser" src="asse/ui/2.jpg" width="35px">
       
       <div class="control-container">
         <label class="checkbox-label">
           <input type="checkbox" id="auto_clear" checked> 
           브라우저 종료 시 자동 초기화
         </label>
-        <input type="button" id="clear_all_maps" value="모든 맵 데이터 삭제" onclick="clearAllMapsData()">
+        <input type="button" id="clear_all_maps" value="모든 맵 데이터 삭제">
       </div>
 	</font>
 
@@ -509,7 +514,8 @@ const R6MapTool = (() => {
     'oregon1f', 'oregonb1', 'skyscraper2f', 'skyscraper1f', 'villa2f', 'villa1f', 'villab1',
     'themepark2f', 'themepark1f', 'lab2f', 'lab1f', 'labb1', 'consulate2f', 'consulate1f',
     'consulateb1', 'lair2f', 'lair1f', 'lairb1', 'bartlett2f', 'bartlett1f', 'coastline2f',
-    'coastline1f', 'kanal2f', 'kanal1f', 'kanalb1', 'kanalb2', 'outback2f', 'outback1f'
+    'coastline1f', 'kanal2f', 'kanal1f', 'kanalb1', 'kanalb2', 'outback2f', 'outback1f' , 'fortress3f' ,
+    'fortress2f' , 'fortress1f'
   ];
   let mapStates = {};
   let currentMap = 'bank2f';
@@ -519,6 +525,10 @@ const R6MapTool = (() => {
   let defaultPositions = [];
   let canvas, ctx;
   let isDrawing = false, currentTool = 1, brushSize = 5, brushColor = '#FF0000';
+  let lastX = 0, lastY = 0;
+  let drawingHistory = [];
+  let historyStep = -1;
+  let isDrawingScheduled = false;
   
   // 아이콘 토글 기능 변수
   let selectedIconForClicking = null;
@@ -743,11 +753,25 @@ const R6MapTool = (() => {
     });
   }
   function restoreCanvasState(mapId) {
+    if (!ctx || !canvas) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     if (mapStates[mapId]?.canvasData) {
       const img = new Image();
-      img.onload = () => ctx.drawImage(img, 0, 0);
+      img.onload = () => {
+        ctx.drawImage(img, 0, 0);
+        drawingHistory = [mapStates[mapId].canvasData];
+        historyStep = 0;
+      };
+      img.onerror = () => {
+        console.error('캔버스 이미지 로드 실패');
+        drawingHistory = [];
+        historyStep = -1;
+      };
       img.src = mapStates[mapId].canvasData;
+    } else {
+      drawingHistory = [];
+      historyStep = -1;
+      saveDrawingState(); // 빈 상태 저장
     }
   }
 
@@ -861,22 +885,36 @@ function resetIcons() {
 }
 function deleteCanvas() {
   // confirm 제거
+  if (!ctx || !canvas) return;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   mapStates[currentMap].canvasData = null;
+  drawingHistory = [];
+  historyStep = -1;
+  saveDrawingState(); // 빈 상태 저장
 }
 function resetAll() {
   // confirm 제거
   removeCursorIcon(); // 토글 해제
   resetIcons();
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  mapStates[currentMap].canvasData = null;
+  if (ctx && canvas) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    mapStates[currentMap].canvasData = null;
+    drawingHistory = [];
+    historyStep = -1;
+    saveDrawingState(); // 빈 상태 저장
+  }
 }
 function clearAllMapsData() {
   // confirm 제거
   removeCursorIcon(); // 토글 해제
   localStorage.removeItem('r6mapstates');
   initializeMapStates();
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  if (ctx && canvas) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawingHistory = [];
+    historyStep = -1;
+    saveDrawingState(); // 빈 상태 저장
+  }
   getClones().forEach(clone => clone.remove());
   getOriginalElements().forEach((el, i) => {
     if (defaultPositions[i]) {
@@ -947,75 +985,181 @@ function clearAllMapsData() {
   }
 
   // --- 캔버스 드로잉 ---
+  function saveDrawingState() {
+    historyStep++;
+    if (historyStep < drawingHistory.length) {
+      drawingHistory.length = historyStep;
+    }
+    drawingHistory.push(canvas.toDataURL());
+    if (drawingHistory.length > 50) { // 최대 50단계 저장
+      drawingHistory.shift();
+      historyStep--;
+    }
+  }
+  
+  function undo() {
+    if (historyStep > 0) {
+      historyStep--;
+      const img = new Image();
+      img.onload = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0);
+      };
+      img.src = drawingHistory[historyStep];
+    }
+  }
+  
+  function redo() {
+    if (historyStep < drawingHistory.length - 1) {
+      historyStep++;
+      const img = new Image();
+      img.onload = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0);
+      };
+      img.src = drawingHistory[historyStep];
+    }
+  }
+  
   function tool(toolNumber) {
     currentTool = toolNumber;
-    document.getElementById('pencil').classList.toggle('active', toolNumber === 1);
-    document.getElementById('eraser').classList.toggle('active', toolNumber === 2);
-    canvas.style.cursor = toolNumber === 1 ? 'crosshair' : 'grab';
+    const pencilBtn = document.getElementById('pencil');
+    const eraserBtn = document.getElementById('eraser');
+    if (pencilBtn) pencilBtn.classList.toggle('active', toolNumber === 1);
+    if (eraserBtn) eraserBtn.classList.toggle('active', toolNumber === 2);
+    if (canvas) canvas.style.cursor = toolNumber === 1 ? 'crosshair' : 'grab';
   }
+  
   function initializeDrawing() {
     const colorInput = document.getElementById('color');
     const widthInput = document.getElementById('width');
+    
     if (colorInput) {
       colorInput.value = '#FF0000';
       colorInput.addEventListener('change', function() { brushColor = this.value; });
     }
     if (widthInput) {
       widthInput.value = 5;
-      widthInput.addEventListener('change', function() { brushSize = parseInt(this.value); });
+      widthInput.addEventListener('change', function() { brushSize = parseInt(this.value) || 5; });
     }
+    
+    // 마우스 이벤트
     canvas.addEventListener('mousedown', startDrawing);
     canvas.addEventListener('mousemove', draw);
     canvas.addEventListener('mouseup', stopDrawing);
-    canvas.addEventListener('mouseout', stopDrawing);
-    canvas.addEventListener('touchstart', handleTouch);
-    canvas.addEventListener('touchmove', handleTouch);
-    canvas.addEventListener('touchend', stopDrawing);
+    canvas.addEventListener('mouseleave', stopDrawing);
+    
+    // 터치 이벤트
+    canvas.addEventListener('touchstart', handleTouch, { passive: false });
+    canvas.addEventListener('touchmove', handleTouch, { passive: false });
+    canvas.addEventListener('touchend', stopDrawing, { passive: false });
+    canvas.addEventListener('touchcancel', stopDrawing, { passive: false });
+    
+    // 키보드 단축키
+    document.addEventListener('keydown', function(e) {
+      if (e.ctrlKey && e.key === 'z') {
+        e.preventDefault();
+        undo();
+      } else if (e.ctrlKey && e.key === 'y') {
+        e.preventDefault();
+        redo();
+      }
+    });
+    
     tool(1);
+    saveDrawingState(); // 초기 상태 저장
   }
+  
+  function getCanvasCoordinates(e) {
+    const rect = canvas.getBoundingClientRect();
+    return {
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top
+    };
+  }
+  
   function startDrawing(e) {
-    const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    if (!isCanvasPositionInBounds(x, y)) return;
+    if (!canvas || !ctx) return;
+    
+    const coords = getCanvasCoordinates(e);
+    if (!isCanvasPositionInBounds(coords.x, coords.y)) return;
+    
     isDrawing = true;
+    lastX = coords.x;
+    lastY = coords.y;
+    
     ctx.beginPath();
-    ctx.moveTo(x, y);
-  }
-  function draw(e) {
-    if (!isDrawing) return;
-    const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    if (!isCanvasPositionInBounds(x, y)) { stopDrawing(); return; }
+    ctx.moveTo(coords.x, coords.y);
+    
+    // 점 찍기 (클릭만 했을 때를 위해)
     ctx.lineWidth = brushSize;
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
     ctx.globalCompositeOperation = currentTool === 1 ? 'source-over' : 'destination-out';
     ctx.strokeStyle = brushColor;
-    ctx.lineTo(x, y);
+    ctx.lineTo(coords.x + 0.1, coords.y + 0.1);
     ctx.stroke();
     ctx.beginPath();
-    ctx.moveTo(x, y);
+    ctx.moveTo(coords.x, coords.y);
   }
-  function stopDrawing() {
-    if (isDrawing) {
-      isDrawing = false;
-      ctx.beginPath();
-      saveCurrentCanvasState();
+  
+  function draw(e) {
+    if (!isDrawing || !canvas || !ctx) return;
+    
+    if (!isDrawingScheduled) {
+      isDrawingScheduled = true;
+      requestAnimationFrame(() => {
+        const coords = getCanvasCoordinates(e);
+        
+        if (!isCanvasPositionInBounds(coords.x, coords.y)) {
+          stopDrawing();
+          isDrawingScheduled = false;
+          return;
+        }
+        
+        ctx.lineWidth = brushSize;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.globalCompositeOperation = currentTool === 1 ? 'source-over' : 'destination-out';
+        ctx.strokeStyle = brushColor;
+        
+        // 베지어 곡선으로 부드러운 선 그리기
+        const midX = (lastX + coords.x) / 2;
+        const midY = (lastY + coords.y) / 2;
+        ctx.quadraticCurveTo(lastX, lastY, midX, midY);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(midX, midY);
+        
+        lastX = coords.x;
+        lastY = coords.y;
+        isDrawingScheduled = false;
+      });
     }
   }
+  
+  function stopDrawing() {
+    if (!isDrawing) return;
+    
+    isDrawing = false;
+    if (ctx) ctx.beginPath();
+    saveCurrentCanvasState();
+    saveDrawingState(); // 히스토리에 저장
+  }
+  
   function handleTouch(e) {
     e.preventDefault();
+    if (e.touches.length !== 1) return; // 멀티터치 방지
+    
     const touch = e.touches[0];
-    const rect = canvas.getBoundingClientRect();
-    const x = touch.clientX - rect.left;
-    const y = touch.clientY - rect.top;
-    if (!isCanvasPositionInBounds(x, y) && isDrawing) { stopDrawing(); return; }
     const mouseEvent = new MouseEvent(
       e.type === 'touchstart' ? 'mousedown' :
       e.type === 'touchmove' ? 'mousemove' : 'mouseup',
-      { clientX: touch.clientX, clientY: touch.clientY }
+      {
+        clientX: touch.clientX,
+        clientY: touch.clientY,
+        bubbles: true
+      }
     );
     canvas.dispatchEvent(mouseEvent);
   }
@@ -1023,18 +1167,29 @@ function clearAllMapsData() {
   // --- 초기화 및 이벤트 통합 ---
   function init() {
     canvas = getCanvas();
-    ctx = canvas.getContext('2d');
+    if (!canvas) {
+      console.error('캔버스를 찾을 수 없습니다.');
+      return;
+    }
+    ctx = canvas.getContext('2d', { willReadFrequently: false });
+    if (!ctx) {
+      console.error('캔버스 컨텍스트를 가져올 수 없습니다.');
+      return;
+    }
+    
     initializeMapStates();
     setupMapChangeListeners();
     initializeDragAndDrop();
     initializeDrawing();
     setupIconClickToggle(); // 아이콘 클릭 토글 기능 추가
     autoChangeImagePaths();
+    
     // 기본 위치 저장
     defaultPositions = Array.from(getDragElements()).map(el => ({
       top: el.style.top, left: el.style.left
     }));
     loadAllStates();
+    
     // 자동 초기화 체크박스
     const autoClear = document.getElementById('auto_clear');
     const savedAutoClear = localStorage.getItem('autoClearEnabled');
@@ -1044,13 +1199,21 @@ function clearAllMapsData() {
         localStorage.setItem('autoClearEnabled', this.checked);
       });
     }
+    
     // 버튼 이벤트
-    document.getElementById('reset_icon').onclick = resetIcons;
-    document.getElementById('delete_canvas').onclick = deleteCanvas;
-    document.getElementById('all_reset').onclick = resetAll;
-    document.getElementById('clear_all_maps').onclick = clearAllMapsData;
-    document.getElementById('pencil').onclick = () => tool(1);
-    document.getElementById('eraser').onclick = () => tool(2);
+    const resetIconBtn = document.getElementById('reset_icon');
+    const deleteCanvasBtn = document.getElementById('delete_canvas');
+    const allResetBtn = document.getElementById('all_reset');
+    const clearAllMapsBtn = document.getElementById('clear_all_maps');
+    const pencilBtn = document.getElementById('pencil');
+    const eraserBtn = document.getElementById('eraser');
+    
+    if (resetIconBtn) resetIconBtn.onclick = resetIcons;
+    if (deleteCanvasBtn) deleteCanvasBtn.onclick = deleteCanvas;
+    if (allResetBtn) allResetBtn.onclick = resetAll;
+    if (clearAllMapsBtn) clearAllMapsBtn.onclick = clearAllMapsData;
+    if (pencilBtn) pencilBtn.onclick = () => tool(1);
+    if (eraserBtn) eraserBtn.onclick = () => tool(2);
   }
 
   // 저장/삭제 on unload
@@ -1074,5 +1237,6 @@ function clearAllMapsData() {
 document.addEventListener('DOMContentLoaded', R6MapTool.init);
   </script>
 
+</div>
 </body>
 </html>

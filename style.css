@@ -23,7 +23,17 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  margin: 0;
+  padding: 0;
 }
+
+.main-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
 .general_slot{
   position: absolute;
   top: 15px;
@@ -69,14 +79,18 @@ body {
   left: 5px;
 }
 .numbers {
-  font-size: 11px;
+  font-size: 20px;
+  font-weight: bold;
   height: 30px;
   width: 30px;
   border-radius: 50%;
   text-align: center;
-  line-height: 35px;
+  line-height: 30px;
   background-color:black;
   border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .No_1{
   position: absolute;
@@ -637,14 +651,18 @@ body {
 }
 
 [id*="-clone-"].numbers {
-  font-size: 24px;
+  font-size: 20px;
+  font-weight: bold;
   height: 30px;
   width: 30px;
   border-radius: 50%;
   text-align: center;
-  line-height: 35px;
+  line-height: 30px;
   background-color: black;
   border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* 숫자 아이콘 복제본들의 색상 유지 */
@@ -745,6 +763,10 @@ body {
 .R17 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 16); left: var(--tab-right-x); }
 .R18 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 17); left: var(--tab-right-x); }
 .R19 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 18); left: var(--tab-right-x); }
+.R20 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 19); left: var(--tab-right-x); }
+.R21 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 20); left: var(--tab-right-x); }
+.R22 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 21); left: var(--tab-right-x); }
+.R23 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 22); left: var(--tab-right-x); }
 
 /* 라디오 버튼 숨기기 */
 input[name="tab_item"] {
@@ -811,7 +833,10 @@ input[name="tab_item"] {
 #labb1:checked ~ #labb1,
 #lair2f:checked ~ #lair2f,
 #lair1f:checked ~ #lair1f,
-#lairb1:checked ~ #lairb1 {
+#lairb1:checked ~ #lairb1,
+#fortress3f:checked ~ #fortress3f,
+#fortress2f:checked ~ #fortress2f,
+#fortress1f:checked ~ #fortress1f { 
   display: block;
 }
 
