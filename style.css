@@ -872,6 +872,52 @@ canvas {
   width: 300px; /* 팔레트 영역 너비 설정 */
   height: 50px; /* 팔레트 영역 높이 설정 */
 }
+
+/* 도움말 패널 (우측 상단) */
+.help-panel {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 10001;
+}
+.help-toggle {
+  background: black;
+  color: white;
+  border: 1px solid white;
+  padding: 6px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.help-content {
+  margin-top: 6px;
+  width: 320px;
+  max-height: 60vh;
+  overflow: auto;
+  background: black;
+  color: white;
+  border: 1px solid white;
+  padding: 10px;
+  font-size: 12px;
+}
+.help-title {
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.help-section {
+  margin-bottom: 10px;
+}
+.help-section-title {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+.help-content ul {
+  margin: 0;
+  padding-left: 18px;
+}
+.help-content li {
+  margin: 2px 0;
+}
 label {
   color: white;
   margin-right: 0.5rem;
