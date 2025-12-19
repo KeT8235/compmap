@@ -14,3 +14,8 @@ Improve icon placement (add mouse2 replication)
 v1.3 <br>
 update y10s4(idc thatcher icon)<br>
 bug fix<br>
+
+v1.4 <br>
+:3 <br>
+
+v1.5 next (y11)
