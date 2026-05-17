@@ -1098,12 +1098,7 @@ label {
 #ram { top: calc(var(--op-gap-y) * 2); left: calc(var(--op-start-x) + var(--op-gap-x) * 3); }
 #deimos { top: calc(var(--op-gap-y) * 2); left: calc(var(--op-start-x) + var(--op-gap-x) * 4); }
 #rauora { top: calc(var(--op-gap-y) * 2); left: calc(var(--op-start-x) + var(--op-gap-x) * 5); }
-#deimos { top: calc(var(--op-gap-y) * 2); left: calc(var(--op-start-x) + var(--op-gap-x) * 4); }
-#rauora { top: calc(var(--op-gap-y) * 2); left: calc(var(--op-start-x) + var(--op-gap-x) * 5); }
-#grim { top: calc(var(--op-gap-y) * 2); left: calc(var(--op-start-x) + var(--op-gap-x) * 1); }
-#brava { top: calc(var(--op-gap-y) * 2); left: calc(var(--op-start-x) + var(--op-gap-x) * 2); }
-#ram { top: calc(var(--op-gap-y) * 2); left: calc(var(--op-start-x) + var(--op-gap-x) * 3); }
-#deimos { top: calc(var(--op-gap-y) * 2); left: calc(var(--op-start-x) + var(--op-gap-x) * 4); }
-#rauora { top: calc(var(--op-gap-y) * 2); left: calc(var(--op-start-x) + var(--op-gap-x) * 5); }
+#solidsnake { top: calc(var(--op-gap-y) * 2); left: calc(var(--op-start-x) + var(--op-gap-x) * 6); }
 
+ 
 
