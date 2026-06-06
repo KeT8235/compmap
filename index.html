@@ -302,6 +302,13 @@
       <input id="fortress1f" type="radio" name="tab_item">
       <label class="R22 tab_item" for="fortress1f">요새 1F</label>
 
+      <input id="CalypsoCasino2f" type="radio" name="tab_item">
+      <label class="R23 tab_item" for="CalypsoCasino2f">카지노 2F</label>
+      <input id="CalypsoCasino1f" type="radio" name="tab_item">
+      <label class="R24 tab_item" for="CalypsoCasino1f">카지노 1F</label>
+      <input id="CalypsoCasinob1" type="radio" name="tab_item">
+      <label class="R25 tab_item" for="CalypsoCasinob1">카지노 B1</label>
+
 
       <div class="tab_content" id="bank2f">
         <img src="asse/maps/bank2f.jpg" alt="" class="map">
@@ -438,6 +445,15 @@
         <div class="tab_content" id="fortress1f">
         <img src="asse/maps/fortress1f.jpg" alt="" class="map">
     </div>
+        <div class="tab_content" id="CalypsoCasino2f">
+        <img src="asse/maps/CalypsoCasino2f.jpg" alt="" class="map">
+        </div>
+        <div class="tab_content" id="CalypsoCasino1f">
+        <img src="asse/maps/CalypsoCasino1f.jpg" alt="" class="map">
+        </div>
+        <div class="tab_content" id="CalypsoCasinob1">
+        <img src="asse/maps/CalypsoCasinob1.jpg" alt="" class="map">
+        </div>
     </div>
     
 
@@ -515,7 +531,7 @@ const R6MapTool = (() => {
     'themepark2f', 'themepark1f', 'lab2f', 'lab1f', 'labb1', 'consulate2f', 'consulate1f',
     'consulateb1', 'lair2f', 'lair1f', 'lairb1', 'bartlett2f', 'bartlett1f', 'coastline2f',
     'coastline1f', 'kanal2f', 'kanal1f', 'kanalb1', 'kanalb2', 'outback2f', 'outback1f' , 'fortress3f' ,
-    'fortress2f' , 'fortress1f'
+    'fortress2f' , 'fortress1f', 'CalypsoCasino2f', 'CalypsoCasino1f', 'CalypsoCasinob1'
   ];
   let mapStates = {};
   let currentMap = 'bank2f';
@@ -681,13 +697,17 @@ const R6MapTool = (() => {
   // --- 상태 관리 ---
   function initializeMapStates() {
     mapList.forEach(mapId => {
-      mapStates[mapId] = { canvasData: null, iconPositions: [], clonedIcons: [] };
+      if (!mapStates[mapId]) {
+        mapStates[mapId] = { canvasData: null, iconPositions: [], clonedIcons: [] };
+      }
     });
   }
   function saveCurrentCanvasState() {
+    if (!mapStates[currentMap]) initializeMapStates();
     mapStates[currentMap].canvasData = canvas.toDataURL();
   }
   function saveCurrentIconPositions() {
+    if (!mapStates[currentMap]) initializeMapStates();
     // 원본 위치
     const positions = [];
     const elements = getDragElements();
@@ -885,14 +905,16 @@ function resetIcons() {
     }
   });
   getClones().forEach(clone => clone.remove());
-  mapStates[currentMap].iconPositions = [];
-  mapStates[currentMap].clonedIcons = [];
+  if (mapStates[currentMap]) {
+    mapStates[currentMap].iconPositions = [];
+    mapStates[currentMap].clonedIcons = [];
+  }
 }
 function deleteCanvas() {
   // confirm 제거
   if (!ctx || !canvas) return;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  mapStates[currentMap].canvasData = null;
+  if (mapStates[currentMap]) mapStates[currentMap].canvasData = null;
   drawingHistory = [];
   historyStep = -1;
   saveDrawingState(); // 빈 상태 저장
@@ -903,7 +925,7 @@ function resetAll() {
   resetIcons();
   if (ctx && canvas) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    mapStates[currentMap].canvasData = null;
+    if (mapStates[currentMap]) mapStates[currentMap].canvasData = null;
     drawingHistory = [];
     historyStep = -1;
     saveDrawingState(); // 빈 상태 저장
@@ -913,6 +935,7 @@ function clearAllMapsData() {
   // confirm 제거
   removeCursorIcon(); // 토글 해제
   localStorage.removeItem('r6mapstates');
+  mapStates = {}; // 전체 초기화
   initializeMapStates();
   if (ctx && canvas) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -939,7 +962,8 @@ function clearAllMapsData() {
   function loadAllStates() {
     const savedStates = localStorage.getItem('r6mapstates');
     if (savedStates) {
-      mapStates = JSON.parse(savedStates);
+      const parsed = JSON.parse(savedStates);
+      mapStates = { ...mapStates, ...parsed }; // 병합
       restoreCanvasState(currentMap);
       restoreIconPositions(currentMap);
     }

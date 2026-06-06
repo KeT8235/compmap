@@ -712,13 +712,12 @@ body {
   position: absolute;
   opacity: 0.8;
 }
-/*選択されているタブのスタイルを変える*/
 .tabs input:checked + .tab_item {
   background-color: rgb(250, 180, 0);
   color: #fff;
   opacity: 1;
 }
-/* 마ップ 이름의 탭 위치 조정 */
+/* 맵 이름의 탭 위치 조정 */
 .L1 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 0); left: var(--tab-left-x); }
 .L2 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 1); left: var(--tab-left-x); }
 .L3 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 2); left: var(--tab-left-x); }
@@ -767,6 +766,8 @@ body {
 .R21 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 20); left: var(--tab-right-x); }
 .R22 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 21); left: var(--tab-right-x); }
 .R23 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 22); left: var(--tab-right-x); }
+.R24 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 23); left: var(--tab-right-x); }
+.R25 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 24); left: var(--tab-right-x); }
 
 /* 라디오 버튼 숨기기 */
 input[name="tab_item"] {
@@ -836,7 +837,10 @@ input[name="tab_item"] {
 #lairb1:checked ~ #lairb1,
 #fortress3f:checked ~ #fortress3f,
 #fortress2f:checked ~ #fortress2f,
-#fortress1f:checked ~ #fortress1f { 
+#fortress1f:checked ~ #fortress1f,
+#CalypsoCasino2f:checked ~ #CalypsoCasino2f,
+#CalypsoCasino1f:checked ~ #CalypsoCasino1f,
+#CalypsoCasinob1:checked ~ #CalypsoCasinob1 { 
   display: block;
 }
 

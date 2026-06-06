@@ -21,3 +21,6 @@ v1.4 <br>
 v1.5 <br>
 add solidsnake
 
+v1.6 <br>
+add calypsocasino
+mapsource(https://x.com/bonedfps)
