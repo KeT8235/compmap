@@ -24,3 +24,6 @@ add solidsnake
 v1.6 <br>
 add calypsocasino
 mapsource(https://x.com/bonedfps)
+
+
+https://github.com/KeT8235/compmap
