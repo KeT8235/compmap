@@ -127,7 +127,7 @@ body {
   color:limegreen;
   border-color:limegreen;
 }
-/* 攻撃側、防衛側エリアの基準位置 */
+/* 공격측, 방위측 영역의 기준위치 */
 .defense_slot {
   border: 0.1rem solid white;
   display: inline-block;
@@ -145,13 +145,13 @@ body {
   margin-top: 20px;
   margin-left: 20px;
 }
-/* アイコンすべてに適応 */
+/* 모든 아이콘 */
 .drag-and-drop {
   cursor: move;
   position: absolute;
   z-index: 10;
 }
-/* オペレーターアイコンすべてに適応 */
+/* 모든 오퍼레이터 아이콘 */
 .icon {
   width: 30px;
   height: 30px;
@@ -177,7 +177,7 @@ body {
   width: 30px;
   height: 10px;
 }
-/* 攻撃側ガジェット位置決め */
+/* 공격측 가젯 위치 결정 */
 .drone_slot {
   width: 70px;
   height: 90px;
@@ -367,7 +367,7 @@ body {
   color: white;
   font-size: 11px;
 }
-/* 防衛側ガジェット位置決め */
+/* 방어 측 가젯 위치 결정 */
 .reinforcement_slot {
   text-align: center;
   width: 70px;
@@ -696,7 +696,7 @@ body {
   height: 0px;
   width: 0px;
 }
-/*タブのスタイル*/
+/* 탭 스타일 */
 .tab_item {
   height: 30px;
   width: 135px;
@@ -717,7 +717,7 @@ body {
   color: #fff;
   opacity: 1;
 }
-/* 맵 이름의 탭 위치 조정 */
+/* 좌측 맵 이름의 탭 위치 조정 */
 .L1 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 0); left: var(--tab-left-x); }
 .L2 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 1); left: var(--tab-left-x); }
 .L3 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 2); left: var(--tab-left-x); }
@@ -742,7 +742,7 @@ body {
 .L22 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 21); left: var(--tab-left-x); }
 .L23 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 22); left: var(--tab-left-x); }
 
-/* 마ップ 탭의 위치 - R 시리즈 */
+/* 우측 맵 이름의 탭 위치 조정 */
 .R1 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 0); left: var(--tab-right-x); }
 .R2 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 1); left: var(--tab-right-x); }
 .R3 { top: calc(var(--tab-start-y) + var(--tab-gap-y) * 2); left: var(--tab-right-x); }
@@ -780,19 +780,19 @@ input[name="tab_item"] {
   padding: 0;
   margin: 0;
 }
-/*ラジオボタンを全て消す*/
+/* 라디오 버튼을 모두 지우기 */
 input[name="tab_item"] {
   display: none;
 }
 
-/*タブ切り替えの中身のスタイル*/
+/* 탭 전환 내용의 스타일 */
 .tab_content {
   display: none;
   padding: 0;
   margin: 0;
 }
 
-/*選択されているタブのコンテンツのみを表示*/
+/* 선택 콘텐츠만 표시 */
 #bank2f:checked ~ #bank2f,
 #bank1f:checked ~ #bank1f,
 #bankb1:checked ~ #bankb1,
@@ -844,7 +844,7 @@ input[name="tab_item"] {
   display: block;
 }
 
-/* お絵描きエリアのcss */
+/* 그림 그리기 영역 CSS */
 
 #canvas {
   margin: 0.8rem;
@@ -989,7 +989,7 @@ label {
   z-index: 1;
 }
 
-/* 行指定 */
+/* 행 지정 */
 .op-row-1 { top: 0px; }
 .op-row-2 { top: var(--row-height); }
 .op-row-3 { top: calc(var(--row-height) * 2); }
