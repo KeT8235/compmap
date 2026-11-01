@@ -25,8 +25,7 @@ v1.6 <br>
 add calypsocasino
 mapsource(https://x.com/bonedfps)
 
-v1.7 <br>
-add noor
-
+v1.71 <br>
+add noor,villa
 
 https://github.com/KeT8235/compmap
